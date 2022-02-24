@@ -11,5 +11,5 @@ interface PostDao {
     fun addPost(entityCache: EntityCache): Long
 
     @Query("Select * from postsComments")
-    suspend fun getAllComments(): List<Posts>
+    suspend fun getAllComments(): List<EntityCache>
 }

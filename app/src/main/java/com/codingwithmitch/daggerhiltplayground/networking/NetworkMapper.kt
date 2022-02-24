@@ -26,7 +26,7 @@ class NetworkMapper
         )
     }
 
-    fun mapFromEntityListToPosts(entity: BlogNetworkEntity): List<Posts> {
+    fun mapFromNetworkListToPosts(entity: BlogNetworkEntity): List<Posts> {
         return entity.map { mapFromEntity(it) }
     }
 }
