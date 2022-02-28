@@ -5,8 +5,10 @@ import com.codingwithmitch.daggerhiltplayground.model.Posts
 import com.codingwithmitch.daggerhiltplayground.networking.BlogNetworkEntityItem
 import com.codingwithmitch.daggerhiltplayground.util.EntityMapper
 import retrofit2.http.POST
+import javax.inject.Inject
 
-class ChacheMaper : EntityMapper<EntityCache, Posts> {
+class ChacheMaper
+@Inject constructor() : EntityMapper<EntityCache, Posts> {
     override fun mapTOEntity(domainModel: Posts): EntityCache {
         return EntityCache(
             id = domainModel.id,

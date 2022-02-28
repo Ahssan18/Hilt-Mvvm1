@@ -23,15 +23,15 @@ object Networking {
 
     @Singleton
     @Provides
-    fun provideRetrofit(gson: Gson): Retrofit {
+    fun provideRetrofit(gson: Gson): Retrofit.Builder {
         return Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
-            .addConverterFactory(GsonConverterFactory.create(gson)).build()
+            .addConverterFactory(GsonConverterFactory.create(gson))
     }
 
     @Singleton
     @Provides
-    fun providePostService(retrofit: Retrofit): PostServices {
-        return retrofit.create(PostServices::class.java)
+    fun providePostService(retrofit: Retrofit.Builder): PostServices {
+        return retrofit.build().create(PostServices::class.java)
     }
 
 }

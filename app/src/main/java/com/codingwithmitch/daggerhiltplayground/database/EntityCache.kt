@@ -2,7 +2,9 @@ package com.codingwithmitch.daggerhiltplayground.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
+
 @Entity(tableName = "postsComments")
 data class EntityCache(
 

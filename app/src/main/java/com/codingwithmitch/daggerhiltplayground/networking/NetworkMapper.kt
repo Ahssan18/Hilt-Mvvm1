@@ -1,11 +1,13 @@
 package com.codingwithmitch.daggerhiltplayground.networking
 
+import android.util.Log
 import com.codingwithmitch.daggerhiltplayground.model.Posts
 import com.codingwithmitch.daggerhiltplayground.util.EntityMapper
 import javax.inject.Inject
 
 class NetworkMapper
 @Inject constructor() : EntityMapper<BlogNetworkEntityItem, Posts> {
+    private val TAG = "NetworkMapper"
     override fun mapTOEntity(domainModel: Posts): BlogNetworkEntityItem {
         return BlogNetworkEntityItem(
             body = domainModel.comment,
@@ -27,6 +29,7 @@ class NetworkMapper
     }
 
     fun mapFromNetworkListToPosts(entity: BlogNetworkEntity): List<Posts> {
+        Log.e(TAG, "entity =>" + entity.toString())
         return entity.map { mapFromEntity(it) }
     }
 }
